@@ -17,6 +17,9 @@ class Game:
     def getNextPlayer(self):
         return self.nextPlayer
 
+    def getBoardList(self):
+        return self.board.getCells()
+
     def makeMove(self, cellIndex):
         self.board.setCellValue(cellIndex, self.nextPlayer)
         self.statesOfBoard.append(self.board)

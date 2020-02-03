@@ -11,7 +11,12 @@ class Board:
 
     
     def getCells(self):
-        return self.cells
+        returnList = []
+
+        for cell in self.cells:
+            returnList.append(cell.getValue())
+        
+        return returnList
 
     def getCell(self, index):
         return self.cells[index].getValue()
