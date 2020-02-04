@@ -1,14 +1,21 @@
 class Cell:
-    valuePossibilities = ['X', 'O']
+    playerSigns = ['X', 'O']
 
     def __init__(self):
-        self.value = ''
+        self.value = '-'
+        self.state = False
 
     def setValue(self, value):
-        if(value != 'O'):
-            if(value != 'X'):
-                raise Exception("Value should be capital 'X' or 'O'")
+        if(not value in self.playerSigns):
+            raise Exception("Value should be capital 'X' or 'O'.")
+        if(self.state == True):
+            raise Exception("Cell occupied by PLAYER " + self.value)
+        
         self.value = value
+        self.state = True
         
     def getValue(self):
         return self.value
+    
+    def getState(self):
+        return self.state

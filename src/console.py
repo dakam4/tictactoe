@@ -13,9 +13,11 @@ def printBoard(board):
 
 
 game = Game()
-index = int(input('Player ' + game.getNextPlayer() + ' (Move from 0 to 8 inclusive): '))
+index = 0
 
 while(len(game.winner) == 0 and index != -1):
+    index = int(input('Player ' + game.getNextPlayer() + ' (Move range [0,8]): '))
+
     if index in range(0, 9):
         game.makeMove(index)
     else:
@@ -23,9 +25,6 @@ while(len(game.winner) == 0 and index != -1):
         print('The move should be between 0 and 8 inclusive.')
     
     printBoard(game.getBoardList())
-
-    index = int(input('Player ' + game.getNextPlayer() + ' (Move from 0 to 8 inclusive): '))
-
 
 printBoard(game.getBoardList())
 print()

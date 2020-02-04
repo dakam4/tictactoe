@@ -3,6 +3,7 @@ from logic.board import Board
 
 class Game:
     numberOfStates = 10
+    minimumState = 0
 
     def __init__(self):
         self.board = Board()
@@ -18,7 +19,7 @@ class Game:
         return self.nextPlayer
 
     def getBoardList(self):
-        return self.board.getCells()
+        return self.board.getSimplifiedBoard()
 
     def makeMove(self, cellIndex):
         self.board.setCellValue(cellIndex, self.nextPlayer)
@@ -40,14 +41,20 @@ class Game:
 
             if(self.board.getCell(a) and self.board.getCell(a) == self.board.getCell(b) and
             self.board.getCell(a) == self.board.getCell(c)):
-
-                self.winner = self.board.getCell(a)
+                print('There s a winner')
+                self.winner = self.board.getCell(a) if self.board.getCell(a) != '-' else ''
                 return True
         
-        return False or self.isEndOfGame()
+        return self.isEndOfGame()
 
     def togglePlayer(self):
         if(self.nextPlayer == 'X'):
             self.nextPlayer = 'O'
         else:
             self.nextPlayer = 'X'
+    
+    def returnToState(self, number):
+        if(number > len(self.numberOfStates) or number < self.minimumState):
+            raise Exception('Invalid state. Shoud be in range [' + str(self.minimumState) + ',' + str(self.numberOfStates) + '[')
+
+        self.board = self.statesOfBoard[number]
