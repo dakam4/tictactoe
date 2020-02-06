@@ -1,4 +1,8 @@
 from logic.game import Game
+import algorithms
+
+
+options = [1, 2, 3]
 
 def printBoard(board):
     print()
@@ -15,11 +19,27 @@ def printBoard(board):
 game = Game()
 index = 0
 
+print('-' * 20)
+print('Options available:')
+print('1 - Simple')
+print('2 - Impossible')
+print('3 - Play against a friend')
+print('-' * 20)
+print()
+playingOption = 0
+
+while(not(playingOption in options)):
+    if(not(playingOption in options)):
+        print('Invalid input.')
+    playingOption = int(input('Select an option: [1,2,3]: '))
+
 while(len(game.winner) == 0 and index != -1):
     index = int(input('Player ' + game.getNextPlayer() + ' (Move range [0,8]): '))
 
     if index in range(0, 9):
         game.makeMove(index)
+        if(playingOption == 1 and len(game.winner) == 0):
+            game.makeMove(algorithms.simplePick(game.getBoardList()))
     else:
         print('Error!')
         print('The move should be between 0 and 8 inclusive.')

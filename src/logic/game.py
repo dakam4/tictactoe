@@ -41,7 +41,6 @@ class Game:
 
             if(self.board.getCell(a) and self.board.getCell(a) == self.board.getCell(b) and
             self.board.getCell(a) == self.board.getCell(c)):
-                print('There s a winner')
                 self.winner = self.board.getCell(a) if self.board.getCell(a) != '-' else ''
                 return True
         
