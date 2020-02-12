@@ -14,6 +14,9 @@ class Game:
 
     def getWinner(self):
         return self.winner
+    
+    def setBoard(self, board):
+        self.board = board
 
     def getNextPlayer(self):
         return self.nextPlayer
