@@ -1,13 +1,13 @@
 import random
 import math
 
-X_player = 'X',
-O_player = 'O',
+X_player = 'X'
+O_player = 'O'
 emptyCell = '-'
 
 scores = {
-    'X': 10,
-    'O': -10,
+    'X': -10,
+    'O': 10,
     '-': 0
 }
 
@@ -28,12 +28,10 @@ def findBestMove(board):
         if(board[cellIndex] == emptyCell):
             board[cellIndex] = X_player
             score = minimax(board, 1, True)
-            
             board[cellIndex] = emptyCell
 
             if(score > bestScore):
                 bestScore = score
-                print(cellIndex)
                 bestMove = cellIndex
     
     return bestMove
