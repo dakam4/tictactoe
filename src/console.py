@@ -40,6 +40,8 @@ while(len(game.winner) == 0 and index != -1):
         game.makeMove(index)
         if(playingOption == 1 and len(game.winner) == 0):
             game.makeMove(algorithms.simplePick(game.getBoardList()))
+        if(playingOption == 2 and len(game.winner) == 0):
+            game.makeMove(algorithms.findBestMove(game.getBoardList()))
     else:
         print('Error!')
         print('The move should be between 0 and 8 inclusive.')
