@@ -20,16 +20,16 @@ game = Game()
 index = 0
 
 print('-' * 20)
-print('Options available:')
+print('Available opions:')
 print('1 - Simple')
 print('2 - Impossible')
 print('3 - Play against a friend')
 print('-' * 20)
 print()
-playingOption = 0
+playingOption = -1
 
 while(not(playingOption in options)):
-    if(not(playingOption in options)):
+    if(not(playingOption in options) and playingOption != -1):
         print('Invalid input.')
     playingOption = int(input('Select an option: [1,2,3]: '))
 
