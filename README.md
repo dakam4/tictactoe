@@ -5,12 +5,6 @@ Tic-tac-toe, noughts and crosses, or Xs and Os is a paper-and-pencil game for tw
 ## How to run it
 run ```py console.py``` from the root folder.
 
-![First command](https://github.com/dakam4/tictactoe--AI-using-minimax/tree/master/images/f_command.png)
-
-![Second command](https://github.com/dakam4/tictactoe--AI-using-minimax/tree/master/images/s_command.png)
-
-![Third command](https://github.com/dakam4/tictactoe--AI-using-minimax/tree/master/images/t_command.png)
-
 ## What to expect
 This game has 3 playing option:
 -against simple AI that picks random cells
